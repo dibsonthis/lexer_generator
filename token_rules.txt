@@ -1,0 +1,85 @@
+
+// TOKENS //
+
+#token 	LEFT_BRACE				=	{
+#token 	RIGHT_BRACE				=	}
+#token 	LEFT_BRACKET			=	[
+#token 	RIGHT_BRACKET			=	]
+#token 	LEFT_PAREN				=	(
+#token 	RIGHT_PAREN				=	)
+#token 	LEFT_ANGLE_BRACKET		=	<
+#token 	RIGHT_ANGLE_BRACKET		=	>
+#token 	GREATER_OR_EQUAL		=	>=
+#token 	LESS_OR_EQUAL			=	<=
+#token 	FLOW					=	<=>
+#token 	EQUAL					=	=
+#token 	DOUBLE_EQUAL			=	==
+#token	TRIPLE_EQUAL			=	===
+#token	ARROW					=	=>
+#token 	PERIOD					=	.
+#token 	COMMA					=	,
+#token 	PLUS					=	+
+#token 	MINUS					=	-
+#token 	STAR					=	*
+#token 	FORWARD_SLASH			=	/
+#token 	BACK_SLASH				=	\
+#token 	PIPE					=	|
+#token 	DOUBLE_PIPE				=	||
+#token 	QUOTE					=	'
+#token 	DOUBLE_QUOTE			=	"
+#token 	DOUBLE_UNDERSCORE		=	__
+#token 	UNDERSCORE				=	_
+#token 	COLON					=	:
+#token 	SEMI_COLON				=	;
+#token 	AMP						=	&
+#token 	DOUBLE_AMP				=	&&
+#token 	DOLLAR					=	$
+#token 	AT						=	@
+#token 	TILDE					=	~
+#token 	PERCENT					=	%
+#token 	CARET					=	^
+#token	DOUBLE_FORWARD_SLASH	=	//
+#token	HASH					=	#
+#token	SHEBANG					=	#!
+#token	NOT_OPERATOR			=	!
+#token	QUESTION_MARK			=	?
+#token	COMMENT_BLOCK_BEGIN		=	/*
+#token	COMMENT_BLOCK_END		=	*/
+#token	NEWLINE					=	\n
+#token	TAB					=	\t
+#token	SPACE					=	\s
+
+// CONTAINERS //
+
+#container digits = "0123456789"
+#container alphas = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#container underscore = "_"
+#container period = "."
+#container whitespace = " \n\r\t\n\r"
+
+#container datatypes = [int, float, char, str]
+#container keywords = [var, def]
+
+// PATTERNS //
+
+#pattern	 ID		=	alphas + alphas|digits|underscore
+#pattern	NUM		=	digits + digits|period
+
+// TRANSFORMS //
+
+#transform ID => KEYWORD if in keywords
+#transform ID => TYPE if in datatypes
+
+#transform NUM => FLOAT if contains 1 period
+#transform NUM => ERROR if contains 2+ period
+
+#transform NUM => INT if excludes period
+
+// CONSTRUCTS //
+
+#construct STRING = DOUBLE_QUOTE - * - DOUBLE_QUOTE
+
+#construct PLUS_EQUAL = PLUS + EQUAL
+#construct PLUS_PLUS = PLUS + PLUS
+#construct MINUS_EQUAL = MINUS + EQUAL
+#construct MINUS_EQUAL = MINUS + MINUS
