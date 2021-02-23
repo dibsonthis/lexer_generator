@@ -1,6 +1,0 @@
-﻿  main.cpp
-C:\dev\C++\Languages\General Language Tools\Lexer\Lexer\Lexer\Lex.h(334,24): warning C4018: '<': signed/unsigned mismatch
-C:\dev\C++\Languages\General Language Tools\Lexer\Lexer\Lexer\Lex.h(366,25): warning C4018: '<': signed/unsigned mismatch
-C:\dev\C++\Languages\General Language Tools\Lexer\Lexer\Lexer\Lex.h(400,41): warning C4018: '<': signed/unsigned mismatch
-C:\dev\C++\Languages\General Language Tools\Lexer\Lexer\Lexer\Lex.h(177): warning C4715: 'Lexer::matches_pattern': not all control paths return a value
-  Lexer.vcxproj -> C:\dev\C++\Languages\General Language Tools\Lexer\Lexer\Debug\Lexer.exe
