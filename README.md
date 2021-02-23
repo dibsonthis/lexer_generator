@@ -1,4 +1,4 @@
-"# lexer_generator" 
+# lexer_generator
 
 I've been experimenting with language design lately and I got fed up with writing a different lexer every time I wanted to try creating a new language, so I decided to create a lexer generator (I call it a pre-lexer) that takes in a set of token rules and generates a lexer.
 
